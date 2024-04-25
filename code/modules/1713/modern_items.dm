@@ -1113,15 +1113,18 @@
 
 /obj/structure/drill/attackby(var/obj/item/W as obj, var/mob/living/human/H as mob)
 	..()
-
+	if (istype(W, /obj/item/weapon/wrench))
+		playsound(loc, 'sound/items/Ratchet.ogg', 100, TRUE)
+		to_chat(H,(anchored ? SPAN_NOTICE("You unfasten \the [src] from the floor.") : SPAN_NOTICE ("You secure \the [src] to the floor.")))
+		anchored = !anchored
+		return
 	if (!anchored)
 		to_chat(H, SPAN_NOTICE("Fix \the [src] in place with a wrench first."))
 		return
-
 	if (istype(W, /obj/item/stack/cable_coil))
 		connect_cable(H,W)
 		return
-
+		
 /obj/structure/drill/attack_hand(var/mob/living/human/H)
 	if (!anchored)
 		to_chat(H, SPAN_NOTICE("Fix \the [src] in place with a wrench first."))
