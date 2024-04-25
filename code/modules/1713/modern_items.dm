@@ -1124,7 +1124,7 @@
 	if (istype(W, /obj/item/stack/cable_coil))
 		connect_cable(H,W)
 		return
-		
+
 /obj/structure/drill/attack_hand(var/mob/living/human/H)
 	if (!anchored)
 		to_chat(H, SPAN_NOTICE("Fix \the [src] in place with a wrench first."))
