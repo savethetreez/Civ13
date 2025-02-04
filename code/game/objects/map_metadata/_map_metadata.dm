@@ -257,6 +257,8 @@ var/civmax_research = list(230,230,230)
 	var/ar_to_close_timeleft = 0
 
 	var/no_hardcore = FALSE
+	var/is_campaign_map = FALSE
+
 /obj/map_metadata/New()
 	..()
 	map = src
@@ -761,6 +763,8 @@ var/civmax_research = list(230,230,230)
 		FILIPINO = 0,
 		BLUEFACTION = 0,
 		REDFACTION = 0,
+		CAFR = 0,
+		TSFSR = 0,
 		)
 
 	if (!(side in soldiers))
@@ -960,7 +964,10 @@ var/civmax_research = list(230,230,230)
 				return "Rotstadt People's Republic"
 			else
 				return "Redmenia Defence Force"
-
+		if (CAFR)
+			return "CAFR Armed Forces"
+		if (TSFSR)
+			return "Turkestan Red Army"
 /obj/map_metadata/proc/army2name(army)
 	switch (army)
 		if ("British Empire")
@@ -1009,6 +1016,10 @@ var/civmax_research = list(230,230,230)
 			return "Blugoslavian"
 		if ("Redmenia Defence Force")
 			return "Redmenian"
+		if ("CAFR Armed Forces")
+			return "Central Asian"
+		if ("Turkestan Red Army")
+			return "Turkestani"
 
 /obj/map_metadata/proc/special_relocate(var/mob/M)
 	return FALSE
