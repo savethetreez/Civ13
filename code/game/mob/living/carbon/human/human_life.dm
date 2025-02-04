@@ -270,7 +270,7 @@
 			addictions[ad] = 0
 
 //death
-	if (getBrainLoss() > 60)
+	if (getBrainLoss() > 60 || getTotalDmg() > 150)
 		death()
 
 // disease stuff
@@ -949,7 +949,7 @@
 	else				//ALIVE. LIGHTS ARE ON
 		updatehealth()	//TODO
 
-		if ((species.has_organ["brain"] && !has_brain()))
+		if (health <= config.health_threshold_dead || (species.has_organ["brain"] && !has_brain()))
 			death()
 			blinded = TRUE
 			silent = FALSE
@@ -1418,6 +1418,10 @@
 		Weaken(20)
 		if (prob(1))
 			adjustOxyLoss(10)
+	if (getBruteLoss() >= 150)
+		spawn(1200)
+			if (getBruteLoss() >= 150)
+				death()
 
 /mob/living/human/proc/handle_hud_list()
 	if (stat == DEAD)
@@ -1635,10 +1639,6 @@
 					holder2.icon_state = "blugoslavia"
 				if (REDFACTION)
 					holder2.icon_state = "redmenia"
-				if (CAFR)
-					holder2.icon_state = "civ1"
-				if (TSFSR)
-					holder2.icon_state = "sov_basic"
 			holder2.overlays.Cut()
 			if (faction_text == CIVILIAN && map.ID == MAP_GULAG13)
 				switch(original_job_title)
@@ -1658,7 +1658,7 @@
 				if (faction_text == CIVILIAN && map.ID == MAP_OCCUPATION)
 					holder2.icon_state = ""
 
-				if(map.ID == MAP_CAMPAIGN || map.ID == MAP_ROTSTADT || map.ID == MAP_BATTLE_SHIPS || map.ID == CAMPAIGN_MAP_LIST_MAPID_OR)
+				if(map.ID == MAP_CAMPAIGN || map.ID == MAP_ROTSTADT || map.ID == MAP_BATTLE_SHIPS)
 					switch (squad)
 						if (4)
 							holder2.overlays += icon(holder2.icon,"squad_recon")
@@ -1711,7 +1711,7 @@
 						holder2.icon_state = ""
 					else
 						holder2.overlays += icon(holder2.icon,"nco")
-			if (map.ID == MAP_CAMPAIGN || map.ID == MAP_OPERATION_FALCON || map.ID == MAP_VADSO_CITY || map.ID == CAMPAIGN_MAP_LIST_MAPID_OR)
+			if (map.ID == MAP_CAMPAIGN || map.ID == MAP_OPERATION_FALCON || map.ID == MAP_VADSO_CITY)
 				if (original_job.is_commander)
 					to_chat(world, "<font color='green' size=4>[ckey] is now the <b>[capitalize(lowertext(faction_text))] Army</b> Commander!</font>")
 			if (original_job.is_medic)
@@ -2018,7 +2018,7 @@
 						return
 
 /mob/living/human/proc/instadeath_check()
-	if (getBrainLoss() > 60)
+	if (getBrainLoss() > 60 || getTotalDmg() > 150)
 		death()
 		return
 	else

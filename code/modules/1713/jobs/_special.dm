@@ -201,10 +201,6 @@
 		. = BLUEFACTION
 	else if (istype(src, /datum/job/redfaction))
 		. = REDFACTION
-	else if (istype(src, /datum/job/cafr))
-		. = CAFR
-	else if (istype(src, /datum/job/tsfsr))
-		. = TSFSR
 	_base_type_flag = .
 	return _base_type_flag
 
@@ -294,12 +290,6 @@
 	else if (istype(src, /datum/job/redfaction))
 		user.faction_text = "REDFACTION"
 		user.base_faction = new/datum/faction/redfaction(user, src)
-	else if (istype(src, /datum/job/cafr))
-		user.faction_text = "CAFR"
-		user.base_faction = new/datum/faction/cafr(user, src)
-	else if (istype(src, /datum/job/tsfsr))
-		user.faction_text = "TSFSR"
-		user.base_faction = new/datum/faction/tsfsr(user, src)
 
 /datum/job/proc/opposite_faction_name()
 	if (istype(src, /datum/job/pirates))

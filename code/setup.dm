@@ -57,11 +57,11 @@
 			if (findtext(i, ";"))
 				var/list/current = splittext(i, ";")
 				switch (current[2])
-					if ("Blue Faction")
+					if ("blue")
 						faction_list_blue += current[1]
-					if ("Red Faction")
+					if ("red")
 						faction_list_red += current[1]
-					if ("Faction Organizer")
+					if ("organizer")
 						faction_list_organizer += current[1]
 	else
 		admin_notice("<span class='danger'>Failed to load factionlist!</span>", R_DEBUG)

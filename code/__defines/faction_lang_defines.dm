@@ -60,9 +60,6 @@
 #define WELSH "WELSH"
 #define BLUEFACTION "BLUEFACTION"
 #define REDFACTION "REDFACTION"
-#define TSFSR "TSFSR"
-#define CAFR "CAFR"
-
 
 /proc/faction_const2name(constant,age = 0)
 	switch(constant)
@@ -314,9 +311,4 @@
 		
 		if (REDFACTION)
 			return "Redmenia"
-		
-		if (CAFR)
-			return "Central Asian Federal Republic"
-		
-		if (TSFSR)
-			return "Turkestan SFSR"
+

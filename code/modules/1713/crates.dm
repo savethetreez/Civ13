@@ -1117,7 +1117,7 @@ obj/structure/closet/crate/airdrops/weapons
 				/obj/item/ammo_magazine/mosinbox = 10)
 
 /obj/structure/closet/crate/pepelsibirsk/ppsh
-	name = "ppsh crate"
+	name = "ak-74 crate"
 	icon_state = "wood_crate"
 	icon_opened = "wood_crate_opened"
 	icon_closed = "wood_crate"
@@ -1173,41 +1173,5 @@ obj/structure/closet/crate/airdrops/weapons
 	icon_opened = "mil_crate_opened"
 	icon_closed = "mil_crate_closed"
 	paths = list(/obj/item/clothing/accessory/armor/coldwar/plates/b2 = 5)
-
-/obj/structure/closet/crate/scopes
-	name = "sniper scope crate"
-	icon_state = "mil_crate_closed"
-	icon_opened = "mil_crate_opened"
-	icon_closed = "mil_crate_closed"
-	paths = list(/obj/item/weapon/attachment/scope/adjustable/sniper_scope = 5)
-
-/obj/structure/closet/crate/scopes/pu
-	name = "mosin/svt scope crate"
-	icon_state = "mil_crate_closed"
-	icon_opened = "mil_crate_opened"
-	icon_closed = "mil_crate_closed"
-	paths = list(/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pu = 5)
-
-/obj/structure/closet/crate/scopes/pso1
-	name = "pso-1 scope crate"
-	icon_state = "mil_crate_closed"
-	icon_opened = "mil_crate_opened"
-	icon_closed = "mil_crate_closed"
-	paths = list(/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso1 = 5)
-
-/obj/structure/closet/crate/suicidevests
-	name = "suicide vest crate"
-	icon_state = "mil_crate_closed"
-	icon_opened = "mil_crate_opened"
-	icon_closed = "mil_crate_closed"
-	paths = list(/obj/item/weapon/grenade/suicide_vest = 4)
-
-/obj/structure/closet/crate/rublecrate
-	name = "ruble crate"
-	icon_state = "crate"
-	icon_opened = "crateopen"
-	icon_closed = "crate"
-	color = "#bcc625"
-	paths = list(/obj/item/stack/money/rubles/fivehundred = 3)
 
 #undef DYNAMIC_AMT
